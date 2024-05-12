@@ -97,4 +97,10 @@ const main = () => {
   })
 }
 
-main()
+new MutationObserver((_, observer) => {
+  const player = document.querySelector('#dv-web-player');
+  if (player) {
+    observer.disconnect()
+    main()
+  }
+}).observe(document, { childList: true, subtree: true })
