@@ -14,15 +14,6 @@ const injectScript = fn => {
 const main = () => {
   injectScript(() => {
     (async() => {
-      const sleep = ms => new Promise(r => setTimeout(r, ms))
-
-      for(;;) {
-        if (document.documentElement !== null && document.body !== null) {
-          break
-        }
-        await sleep(100)
-      }
-      
       const startXHRHooking = () => {
         let script = document.createElement('script')
         script.src = '//unpkg.com/xhook@latest/dist/xhook.min.js'
